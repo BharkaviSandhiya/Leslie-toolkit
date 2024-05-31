@@ -1,0 +1,11 @@
+.container {
+    display: flex;
+  }
+  .sidebar {
+    flex: 1;
+    max-width: 250px; /* Adjust the width of the sidebar as needed */
+  }
+  .content {
+    flex: 3;
+    padding: 20px;
+  }
