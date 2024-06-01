@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import './ValleyPool.scss'; 
+import React, { useEffect, useState } from 'react';
+import './AquaQuip.scss'; 
 import Sidebar from '../../sidebar/Sidebar';
 import Button from '../../common/button/Button';
 import Form from '../../common/form/Form';
 import { CSVLink } from 'react-csv';
 import 'boxicons'; // Import boxicons
 
-const ValleyPool = () => {
+const AquaQuip = () => {
+
   const [brand, setBrand] = useState('');
   const [formData, setFormData] = useState({
     brand: '',
@@ -31,16 +32,19 @@ const ValleyPool = () => {
     }));
   }, []);
 
+
+ 
+  // Static data array
   const staticDataList = [
     {
-      brand: 'Valley Pool',
+      brand: 'Aqua Quip',
       date: '2024-06-01',
       actualSales: '1000',
       transactionCount: '50',
       writtenSales: '900'
     },
     {
-      brand: 'Valley',
+      brand: 'Aqua Quip',
       date: '2024-06-02',
       actualSales: '1500',
       transactionCount: '70',
@@ -48,42 +52,39 @@ const ValleyPool = () => {
     }
   ];
 
-
-  const csvData = [...staticDataList, ...submittedDataList];
-
   const handleChange = (updatedFormData) => {
     setFormData(updatedFormData);
   };
 
-  // Function to handle form submission
   const handleSubmit = (submittedFormData) => {
     setSubmittedDataList([...submittedDataList, submittedFormData]);
     setShowModal(false);
   };
 
-  // Function to open modal
   const openModal = () => {
     setShowModal(true);
   };
 
-  // Function to close modal
   const closeModal = () => {
     setShowModal(false);
   };
 
+  const csvData = [...staticDataList, ...submittedDataList];
+
+
   return (
-    <div className="valley-pool-container">
+    <div className="aquaAuip-container">
       <div className="sidebar">
-        <Sidebar />
+        <Sidebar/>
       </div>
       <div className="content">
         <div className="horizontal-container">
-          <div className="pool-container">
+          <div className="aquabrand-container">
             <div>
-              <h1>Brand - {brand}</h1>
+              <h1> Brand - Aqua Quip</h1>
             </div>
             <div className="btn-modal">
-              <CSVLink data={csvData} filename={`${brand.toLowerCase().replace(/\s+/g, '-')}-valleypool.csv`}>
+              <CSVLink data={csvData} filename={`${brand.toLowerCase().replace(/\s+/g, '-')}-aqua.csv`}>
                 <box-icon 
                   type='solid' 
                   name='cloud-download' 
@@ -109,7 +110,7 @@ const ValleyPool = () => {
                 </tr>
               </thead>
               <tbody>
-              {staticDataList.map((data, index) => (
+                {staticDataList.map((data, index) => (
                   <tr key={`static_${index}`}>
                     <td>{data.brand}</td>
                     <td>{data.date}</td>
@@ -136,13 +137,7 @@ const ValleyPool = () => {
               <div className="modal-content">
                 <span className="close" onClick={closeModal}>&times;</span>
                 <h2>Enter The Data</h2>
-                {/* Pass brand and other props to Form component */}
-                <Form
-                  onSubmit={handleSubmit}
-                  onChange={handleChange}
-                  formData={{ ...formData, brand }} // Pass brand from state
-                  onClose={closeModal}
-                />
+                <Form onSubmit={handleSubmit} onChange={handleChange}  formData={{ ...formData, brand }} onClose={closeModal} />
               </div>
             </div>
           )}
@@ -152,4 +147,4 @@ const ValleyPool = () => {
   );
 };
 
-export default ValleyPool;
+export default AquaQuip;

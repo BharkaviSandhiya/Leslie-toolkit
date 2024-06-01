@@ -112,11 +112,15 @@ th {
 }
 .btn-container{
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
-.btn-save{
-  width: 150px;
-}
+
 h2{
   text-align: center;
+}
+
+.btn-modal {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Adds some space between the button and the icon */
 }
