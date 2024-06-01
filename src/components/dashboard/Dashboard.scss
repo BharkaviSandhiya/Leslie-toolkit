@@ -1,16 +1,33 @@
 .dashboard-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: url("../../assets/images/details.png");
-    background-repeat: round;
-    // min-height: 100vh;
-    background-size:center;
-    position: relative;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  display: flex;
+  height: 100vh;
+  background-repeat: round;
+  background-size: center;
+  justify-content: space-between; /* Align items with space between */
+  padding: 0 20px; /* Add some padding for better spacing */
+}
+.sidebar {
+  /* Optionally, you can add specific width to the sidebar */
+  width: 250px;
+}
+/* Style for the image container */
+.image-container {
+  flex: 1; /* Take remaining space */
+  display: flex;
+  justify-content: center; /* Align the image horizontally to the center */
+  align-items: center; /* Align the image vertically to the center */
+  margin-top: 35px;
+}
+/* Optional: Add styles for the image itself */
+.image-container img {
+  max-width: 100%; /* Ensure image doesn't overflow */
+}
 
-    margin: 0 auto;
-  }
+
+
+
+
+
+
+
+

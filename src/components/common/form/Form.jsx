@@ -1,14 +1,12 @@
 import React from 'react';
 import { func, object } from 'prop-types';
-import Button from '../../common/button/Button';
-import './ValleyPoolForm.scss';
-
-const ValleyPoolForm = ({ formData, onSubmit, onChange, onClose }) => {
+import Button from '../button/Button';
+import './Form.scss';
+const Form = ({ formData, onSubmit, onChange, onClose }) => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     onChange({ ...formData, [name]: value });
   };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     onSubmit(formData);
@@ -21,7 +19,6 @@ const ValleyPoolForm = ({ formData, onSubmit, onChange, onClose }) => {
       writtenSales: ''
     });
   };
-
   return (
     <div>
       <form className="userForm" onSubmit={handleSubmit} id="user-form">
@@ -102,7 +99,7 @@ const ValleyPoolForm = ({ formData, onSubmit, onChange, onClose }) => {
               Cancel
             </Button>
           </div>
-          <div>
+          <div className="save-container">
             <Button type="submit" size="medium" className="btn-save">
               Save
             </Button>
@@ -112,12 +109,10 @@ const ValleyPoolForm = ({ formData, onSubmit, onChange, onClose }) => {
     </div>
   );
 };
-
-ValleyPoolForm.propTypes = {
+Form.propTypes = {
   formData: object.isRequired,
   onSubmit: func.isRequired,
   onChange: func.isRequired,
   onClose: func.isRequired
 };
-
-export default ValleyPoolForm;
+export default Form;
