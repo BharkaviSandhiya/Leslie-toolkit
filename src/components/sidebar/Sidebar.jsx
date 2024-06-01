@@ -1,9 +1,18 @@
 import React, { useState } from 'react';
 import './Sidebar.scss';
+import { useNavigate } from 'react-router-dom';
+
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isBranchOpen, setIsBranchOpen] = useState(false);
-  const [selectedBrand, setSelectedBrand] = useState('');
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    // Perform any logout actions here
+    // Redirect to the login page
+    navigate('/login');
+  };
+
   const brandOptions = [
     "VALLEY POOL",
     "AQUA QUIP",
@@ -16,21 +25,22 @@ const Sidebar = () => {
     "STELLAR",
     "HORIZON"
   ];
+
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
+
   const toggleBranchMenu = () => {
     setIsBranchOpen(!isBranchOpen);
     document.body.classList.toggle('branch-menu-open');
   };
+
   const closeMenu = () => {
     setIsOpen(false);
     setIsBranchOpen(false);
     document.body.classList.remove('branch-menu-open');
   };
-  const handleBrandChange = (e) => {
-    setSelectedBrand(e.target.value);
-  };
+
   return (
     <>
       <nav className={isOpen ? 'open' : ''}>
@@ -45,18 +55,6 @@ const Sidebar = () => {
                 <a href="/dashboard" className="nav-link">
                   <i className="bx bx-home-alt icon"></i>
                   <span className="link">Dashboard</span>
-                </a>
-              </li>
-              <li className="list">
-                <a href="/revenue" className="nav-link">
-                  <i className="bx bx-bar-chart-alt-2 icon"></i>
-                  <span className="link">Revenue</span>
-                </a>
-              </li>
-              <li className="list">
-                <a href="/notifications" className="nav-link">
-                  <i className="bx bx-bell icon"></i>
-                  <span className="link">Notifications</span>
                 </a>
               </li>
               <li className="list">
@@ -84,10 +82,10 @@ const Sidebar = () => {
             </ul>
             <div className="bottom-content">
               <li className="list">
-                <a href="/logout" className="nav-link">
+                <div className="nav-link" onClick={handleLogout}>
                   <i className="bx bx-log-out icon"></i>
                   <span className="link">Logout</span>
-                </a>
+                </div>
               </li>
             </div>
           </div>
@@ -97,4 +95,5 @@ const Sidebar = () => {
     </>
   );
 };
+
 export default Sidebar;

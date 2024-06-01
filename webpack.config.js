@@ -1,15 +1,21 @@
+// webpack.config.js
+const path = require('path');
+
 module.exports = {
-    // other configurations
-    module: {
-      rules: [
-        {
-          test: /\.js$/,
-          enforce: 'pre',
-          use: ['source-map-loader'],
-          exclude: /node_modules/,
-        },
-        // other rules
-      ],
-    },
-  };
-  
+  // Other webpack configuration...
+  module: {
+    rules: [
+      // Other rules...
+      {
+        test: /\.js$/,
+        enforce: 'pre',
+        use: ['source-map-loader'],
+        exclude: [
+          // Paths to ignore
+          path.resolve(__dirname, 'node_modules/boxicons')
+        ]
+      }
+    ]
+  },
+  // Other webpack configuration...
+};

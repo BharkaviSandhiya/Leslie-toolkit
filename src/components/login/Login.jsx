@@ -12,7 +12,7 @@ const Login = () => {
       setError('Please fill in all fields');
     } else {
       // Redirect to dashboard
-      window.location.href = '/valley-pool';
+      window.location.href = '/dashboard';
     }
   };
 
@@ -20,6 +20,11 @@ const Login = () => {
     <div className="container">
       <div className="form-container">
         <h2 className="title">Welcome to Leslie's sales Toolkit!</h2>
+        <div className="formName">
+							<span className="formSpan">
+								Hey, please enter your details to get sign in to your account.
+							</span>
+						</div>
         <form onSubmit={handleSubmit}>
           <input
             type="email"

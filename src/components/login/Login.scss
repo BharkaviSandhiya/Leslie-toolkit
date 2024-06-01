@@ -8,18 +8,33 @@ $secondary-text-color: #B3B3B3;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  // background-color: $background-color;
+  background: url("../../assets/images/leslie-bg.jpg");
+  background-repeat: round;
+  min-height: 100vh;
+  background-size: cover;
+  position: relative;
+}
+
+.container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 290px; /* Adjust the width as needed */
+  height: 105px; /* Adjust the height as needed */
+  background: url("../../assets/images/logo-removebg-preview.png") no-repeat;
+  background-size: contain;
 }
 .form-container {
-  background-color: $form-background;
+  background-color: #959caf;
   padding: 40px;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
   text-align: center;
   width: 400px;
 }
 .title {
-  color: $text-color;
+  color: #0953a0;
   margin-bottom: 20px;
 }
 .input {
@@ -36,7 +51,7 @@ $secondary-text-color: #B3B3B3;
   margin: 10px 0;
   border-radius: 5px;
   border: none;
-  background-color: $primary-color;
+  background-color: #0953a0;
   color: $text-color;
   cursor: pointer;
 }
@@ -57,4 +72,8 @@ $secondary-text-color: #B3B3B3;
   color: $text-color;
   cursor: pointer;
   font-size: 20px;
+}
+.formName {
+  margin: 25px 0;
+  text-align: center;
 }

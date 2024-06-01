@@ -1,9 +1,9 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Sidebar from '../../sidebar/Sidebar';
 import ValleyPool from '../../brand/valleyPool/ValleyPool';
 import "./Layout.scss";
 import Login from '../../login/Login';
+import Dashboard from '../../dashboard/Dashboard';
 const Layout = () => {
   return (
     <div id="toolkit_full_page" className="AppRoot-fullPage">
@@ -13,6 +13,7 @@ const Layout = () => {
           <Routes>
             <Route path="/" element={<Login/>} />
             {/* <Route element={<Sidebar/>} /> */}
+            <Route path='/dashboard' element={<Dashboard/>}/>
             <Route path="/valley-pool" element={<ValleyPool />} />
             {/* Add more routes here as needed */}
           </Routes>

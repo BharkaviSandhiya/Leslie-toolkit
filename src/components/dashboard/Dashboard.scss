@@ -1,0 +1,16 @@
+.dashboard-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url("../../assets/images/details.png");
+    background-repeat: round;
+    // min-height: 100vh;
+    background-size:center;
+    position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+    margin: 0 auto;
+  }
