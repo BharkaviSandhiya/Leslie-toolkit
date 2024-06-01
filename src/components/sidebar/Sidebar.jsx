@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import './Sidebar.scss';
-
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isBranchOpen, setIsBranchOpen] = useState(false);
   const [selectedBrand, setSelectedBrand] = useState('');
-
   const brandOptions = [
     "VALLEY POOL",
     "AQUA QUIP",
@@ -18,24 +16,21 @@ const Sidebar = () => {
     "STELLAR",
     "HORIZON"
   ];
-
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
-
   const toggleBranchMenu = () => {
     setIsBranchOpen(!isBranchOpen);
+    document.body.classList.toggle('branch-menu-open');
   };
-
   const closeMenu = () => {
     setIsOpen(false);
     setIsBranchOpen(false);
+    document.body.classList.remove('branch-menu-open');
   };
-
   const handleBrandChange = (e) => {
     setSelectedBrand(e.target.value);
   };
-
   return (
     <>
       <nav className={isOpen ? 'open' : ''}>
@@ -43,6 +38,7 @@ const Sidebar = () => {
           <div className="logo">
             <i className="bx bx-menu menu-icon" onClick={toggleMenu}></i>
             <span className="logo-name">Leslie's Toolkit</span>
+          </div>
           <div className="sidebar-content">
             <ul className="lists">
               <li className="list">
@@ -66,7 +62,7 @@ const Sidebar = () => {
               <li className="list">
                 <div className="nav-link" onClick={toggleBranchMenu}>
                   <i className="bx bx-building icon"></i>
-                  <span className="link">Branch</span>
+                  <span className="link">Brands</span>
                   <i className={`bx ${isBranchOpen ? 'bx-chevron-up' : 'bx-chevron-down'} arrow`}></i>
                 </div>
                 {isBranchOpen && (
@@ -95,12 +91,10 @@ const Sidebar = () => {
               </li>
             </div>
           </div>
-          </div>
         </div>
       </nav>
       <section className={`overlay ${isOpen ? 'active' : ''}`} onClick={closeMenu}></section>
     </>
   );
 };
-
 export default Sidebar;
